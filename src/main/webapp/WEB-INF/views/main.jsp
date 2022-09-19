@@ -19,7 +19,7 @@
 </head>
 <body>
 <%@ include file="include/header.jsp" %>
-<div class="wrapper">
+<div class="wrapper">???
 	<!-- 내용 -->
 	<div class="content_area">
 		<h1>content area</h1>
