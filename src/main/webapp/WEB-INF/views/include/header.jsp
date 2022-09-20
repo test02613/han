@@ -6,20 +6,17 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="resources/css/header.css">
-<script>
-@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
-		.nanumgothic * {
-		 font-family: 'Nanum Gothic', sans-serif;
-		}
-</script>
 </head>
 <body>
 <div class="wrapper">
 	<div class="header_wrap">
 		
 		<div class="top_menu_area">
-			top_menu_area
+			<!-- top_menu_area -->
+			<ul>
+				<li><a href="join">join</a></li>
+			</ul>
 		</div>
 		<div class="logo_area">
 		<h1>logo area</h1>

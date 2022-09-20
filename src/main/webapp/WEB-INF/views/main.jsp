@@ -9,13 +9,6 @@
 <meta charset="UTF-8">
 <title>APLUS MALL</title>
 <link rel="stylesheet" href="resources/css/main.css">
-<script>
-@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
-
-		.nanumgothic * {
-		 font-family: 'Nanum Gothic', sans-serif;
-		}
-</script>
 </head>
 <body>
 <%@ include file="include/header.jsp" %>

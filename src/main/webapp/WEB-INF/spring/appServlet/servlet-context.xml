@@ -3,7 +3,9 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
@@ -23,6 +25,28 @@
 	
 	<context:component-scan base-package="com.aplus.controller" />
 	
+	<!-- custom CSS -->
+	<resources mapping="/css/**" location="/css/" />
+	
+	<!-- custom Javascript -->
+	<resources mapping="/js/**" location="/js/" />
+	
+	<!-- webjars javascript path -->
+	<resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"/>
+	
+	<!-- bootstrap 4 (4.6.2) -->
+	<resources mapping="/bootstrap4/**" location="classpath:/META-INF/resources/webjars/bootstrap/4.6.2/" />
+	
+	<!-- bootstrap 5 (5.2.0) -->
+	<resources mapping="/bootstrap5/**" location="classpath:/META-INF/resources/webjars/bootstrap/5.2.0/dist/" />
+	
+	<!-- jQuery 3.6.0 -->
+	<resources mapping="/jquery/**" location="classpath:/META-INF/resources/webjars/jquery/3.6.0/" />
+	
+	<!-- bootstrap-icons : 1.9.1 -->
+	<resources mapping="/bi-icons/**" location="classpath:/META-INF/resources/webjars/bootstrap-icons/1.9.1/" />
+	
+
 	
 	
 </beans:beans>

@@ -1,5 +1,15 @@
 @charset "UTF-8";
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);
+
+.nanumgothiccoding * {
+ font-family: 'Nanum Gothic Coding', monospace;
+}
 /* 헤더 랩 */
+*{
+	margin: 0;
+	padding:0;
+	
+}
 .header_wrap{
 	width : 1200px;
 	position: fixed;
