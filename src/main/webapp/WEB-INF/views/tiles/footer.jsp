@@ -1,18 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<!-- <link rel="stylesheet" href="resources/css/footer.css"> -->
 </head>
-<body>	
-
-	<!-- 푸터 -->
-	<div class="footer_area">
-		<h1>footer area</h1>
+<!-- <link rel="stylesheet" href="resources/css/footer.css"> -->
+<body>
+	<div class="wrapper">
+		<footer class="footer">
+			<nav>
+				<a href='https://band.us/band/88769882' target='_blank'>Band</a> | <a
+					href='https://github.com/test02613' target='_blank'>Github</a>
+			</nav>
+			<p>
+				<span>저자 : bonobono</span><br/>
+				<span>이메일 :dhkdwk997@gmail.com</span><br/> 
+				<span>Copyright 2022. bonobono.All Rights Reserved.</span>
+			</p>
+			<div class="logo1">
+				<a href="main"><img src="${RESOURCES_PATH}/img/logo1.png" width="40px" height="40px" /></a>
+			</div>
+			<div class="twitter">
+				<a href="https://twitter.com/"><img src="${RESOURCES_PATH}/img/twitter.png " width="40px" height="40px"/></a>
+			</div>
+			<div class="facebook">
+				<a href="https://www.facebook.com/"><img src="${RESOURCES_PATH}/img/face.png" width="40px" height="40px" /></a>
+			</div>
+			<div class="insta">
+				<a href="https://www.instagram.com/"><img src="${RESOURCES_PATH}/img/insta.png" width="40px" height="40px"/></a>
+			</div>
+		</footer>
+		
 	</div>
-
 </body>
 </html>
