@@ -1,15 +1,5 @@
 @charset "UTF-8";
-@import url(//fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);
 
-.nanumgothiccoding * {
- font-family: 'Nanum Gothic Coding', monospace;
-}
-/* 헤더 랩 */
-*{
-	margin: 0;
-	padding:0;
-	
-}
 .header_wrap{
 	width : 1200px;
 	position: fixed;
@@ -25,13 +15,7 @@
 	justify-content: center; */
     background-color: #a2a2ea;
 }
-/* 로고, 검색, 로그인 */
-.top_menu_area{
-	width: 550px;
-    height: 20px;
-	float:right;
-    background-color: #f7f0b9;
-}
+
 /* 메인메뉴*/
 .main_menu_area{
 	width: 75%;

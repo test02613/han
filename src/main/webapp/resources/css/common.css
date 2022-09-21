@@ -1,0 +1,71 @@
+@charset "UTF-8";
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);
+
+.nanumgothiccoding * {
+ font-family: 'Nanum Gothic Coding', monospace;
+}
+*{
+	margin: 0;
+	padding:0;
+	
+}
+/* 화면 전체 렙 */
+.wrapper{
+	max-width: 100%;
+	margin: 0 auto;
+	
+	/* background-color: red; */
+}
+
+/* 홈페이지 메인 제품 목록  */
+.content_area{
+	width: 100%;
+	padding-top:220px;
+    background-color: #97ef97;
+    height: 650px;
+	
+}
+
+.header_wrap{
+	width : 100%;
+	position: fixed;
+	background-color: azure;
+}
+/* 로고 */ 
+.logo_area{
+	width: 100%;
+	height: 150px;
+	display:inline-block;
+	/* position:flex;
+	align-items: center;
+	justify-content: center; */
+    background-color: #a2a2ea;
+}
+
+/* 메인메뉴*/
+.main_menu_area{
+	width: 75%;
+	height: 50px;
+	background-color: red;
+	float:left;
+}
+/* 검색 박스 영역 */
+.search_area{
+	width: 25%;
+	height: 50px;
+	background-color: yellow;
+	float:left;	
+}
+/* 로고, 검색, 로그인 */
+.top_menu_area{
+	width: 550px;
+    height: 20px;
+	float:right;
+    background-color: #f7f0b9;
+}
+/* 푸터 영역 */
+.footer_area{
+	width:100%;
+	height:100px;
+	background-color: blue;
+}

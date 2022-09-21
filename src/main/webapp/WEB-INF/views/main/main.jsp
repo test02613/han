@@ -8,19 +8,16 @@
 <head>
 <meta charset="UTF-8">
 <title>APLUS MALL</title>
-<link rel="stylesheet" href="resources/css/main.css">
+<!-- <link rel="stylesheet" href="resources/css/main.css"> -->
 </head>
 <body>
-<%@ include file="include/header.jsp" %>
+<%-- <%@ include file="tiles/header.jsp" %> --%>
 <div class="wrapper">
 	<!-- 내용 -->
 	<div class="content_area">
 		<h1>content area</h1>
 	</div>
-	<!-- 푸터 -->
-	<div class="footer_area">
-		<h1>footer area</h1>
-	</div>
+
 </div>
 </body>
 </html>

@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+/* 로고, 검색, 로그인 */
+.top_menu_area{
+	width: 550px;
+    height: 20px;
+	float:right;
+    background-color: #f7f0b9;
+}
