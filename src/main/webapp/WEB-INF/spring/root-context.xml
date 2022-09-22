@@ -11,18 +11,19 @@
 		base-package="com.aplus.mapper" />
 	<context:component-scan
 		base-package="com.aplus.model" />
-	<context:component-scan 
+	<context:component-scan
 		base-package="com.aplus.service" />
 
 	<!-- Root Context: defines shared resources visible to all other web components -->
-	<context:component-scan
-		base-package="com.aplus"></context:component-scan>
+	<context:component-scan base-package="com.aplus"></context:component-scan>
 
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 		<!-- <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property> 
 			<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:xe"></property> -->
-		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
-		<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:XE"></property>
+		<property name="driverClassName"
+			value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
+		<property name="jdbcUrl"
+			value="jdbc:log4jdbc:oracle:thin:@localhost:1521:XE"></property>
 		<property name="username" value="hss"></property>
 		<property name="password" value="hss"></property>
 	</bean>
@@ -35,6 +36,27 @@
 		class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="datasource"></property>
 	</bean>
-	
+
+	<!-- navermail설정 -->
+	<bean id="mailSender"
+		class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com" /> <!-- 메이서버 호스트 -->
+		<property name="port" value="465" /> <!-- 메이서버 포트번호 -->
+		<property name="username" value="dhkdwk997@gmail.com" /> <!-- 자신의 이메일 아이디 -->
+		<property name="password" value="szfmxvceqefwexsy" /> <!-- 자신의 비밀번호 -->
+
+		<!-- 보안연결 SSL과 관련된 설정 -->
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.smtps.checkserveridentity">true</prop>
+				<prop key="mail.smtps.ssl.trust">*</prop>
+				<prop key="mail.debug">true</prop>
+				<prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
+
+			</props>
+		</property>
+	</bean>
 
 </beans>

@@ -8,22 +8,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/main")
 public class MainController {
 
 	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 
-	@RequestMapping(value = "/main", method = RequestMethod.GET)
-	public void mainPageGet() {
-
-		logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>mainPage 진입");
-		
-
-	}
-//	@RequestMapping(value = "/", method = RequestMethod.GET)
-//	public String mainPageGet() {
+//	@RequestMapping(value = "/main", method = RequestMethod.GET)
+//	public void mainPageGet() {
 //
 //		logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>mainPage 진입");
-//		return "main/main";
+		
+
 //	}
+	@RequestMapping(value = "/main", method = RequestMethod.GET)
+	public String mainPageGet() {
+
+		logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>mainPage 진입");
+		return "main/main";
+	}
 }

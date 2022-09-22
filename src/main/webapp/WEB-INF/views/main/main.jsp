@@ -50,6 +50,25 @@
 				</button>
 			</div>
 		</div>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		
+		
+
+		
 		<!-- 푸터 -->
 	<%-- <%@ include file= "include/footer.jsp"%> --%>
 </div>

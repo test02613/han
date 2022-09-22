@@ -102,7 +102,7 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
 			<version>${org.springframework-version}</version>
-			<!-- <scope>test</scope> -->
+			<scope>test</scope>
 		</dependency>
 		<!-- @Inject -->
 		<dependency>
@@ -138,7 +138,7 @@
 		    <groupId>junit</groupId>
 		    <artifactId>junit</artifactId>
 		    <version>4.13.2</version>
-		    <!-- <scope>test</scope> -->
+		    <scope>test</scope>
 		</dependency>
 
 				

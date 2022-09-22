@@ -17,8 +17,12 @@
 		<put-attribute name="footer" value="/WEB-INF/views/tiles/footer.jsp" />
 	</definition>
 	
-	<definition name="*/*" extends="layout-tiles">
-		<put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp" />
-		<put-attribute name="title" value="게시판" />
+	<definition name="main/*" extends="layout-tiles">
+		<put-attribute name="body" value="/WEB-INF/views/main/{1}.jsp" />
+		<put-attribute name="title" value="메인페이지" />
+	</definition>
+ 	<definition name="member/*" extends="layout-tiles2">
+		<put-attribute name="body" value="/WEB-INF/views/member/{1}.jsp"/>
+		<put-attribute name="title" value="회원가입" />
 	</definition>
 </tiles-definitions>

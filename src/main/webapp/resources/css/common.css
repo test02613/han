@@ -12,28 +12,26 @@
     height: 350px;
 	
 }
-/* 푸터 영역 */
-.footer_area{
-	width:1200px;
-	height:100px;
-	background-color: blue;
-	bottom: 0;
-}
 *{
 	margin: 0;
 	padding:0;
+	font-family: 'Nanum Gothic', sans-serif;
 }
+
 /* 화면 전체 렙 */
 .wrapper{
 	max-width: 1200px;
 	margin: 0 auto;
+	height: 100%;
 	
+
+		
 	/* background-color: red; */
 }
 
 .header_wrap{
 	width : 1200px;
-	position: fixed;
+	position: relative;
 	
 }
 
@@ -176,7 +174,7 @@ nav li{
 	background-color: silver;
 }
 nav{
-	padding-top: 20px;
+	/* padding-top: 20px; */
 }
 p{
 	padding-top:20px;
@@ -187,9 +185,10 @@ p{
 	background-color: #24292F;
 	width:1200px;
 	height: 110px; /* 내용물에 따라 알맞는 값 설정 */
-	bottom: 0px;
-	position: absolute;
+	bottom: 0px; 
 	color: white;
+	position : relative;
+  	/* transform : translateY(-100%); */
 	text-align: center;
 
 	border-radius: 10px 10px 0px 0px;

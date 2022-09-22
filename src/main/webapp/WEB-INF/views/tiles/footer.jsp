@@ -20,7 +20,7 @@
 				<span>Copyright 2022. bonobono.All Rights Reserved.</span>
 			</p>
 			<div class="logo1">
-				<a href="main"><img src="${RESOURCES_PATH}/img/logo1.png" width="40px" height="40px" /></a>
+				<a href="/main"><img src="${RESOURCES_PATH}/img/logo1.png" width="40px" height="40px" /></a>
 			</div>
 			<div class="twitter">
 				<a href="https://twitter.com/"><img src="${RESOURCES_PATH}/img/twitter.png " width="40px" height="40px"/></a>
