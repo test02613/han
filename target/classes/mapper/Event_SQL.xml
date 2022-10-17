@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.Event_SQL">
+
+	<resultMap type="EventVO" id="list">
+		<result column="EVENTNUM" property="eventnum"
+			jdbcType="INTEGER" javaType="Integer" />
+		<result column="EVENTTITLE" property="eventtitle"
+			jdbcType="VARCHAR" javaType="String" />
+		<!-- <result column="hashed_password" property="hashedPassword" jdbcType="NVARCHAR" 
+			javaType="String"/> -->
+	</resultMap>
+
+
+	<insert id="event_insert" parameterType="EventVO">
+		<selectKey keyProperty="eventnum" resultType="Integer"
+			order="BEFORE">
+			select EVENTNUM_SEQ.nextval FROM DUAL
+		</selectKey>
+		insert into event values(#{eventnum},
+		sysdate, #{eventtitle},
+		#{eventcontent} )
+	</insert>
+	<!-- 게시글 목록 -->
+	<select id="event_list" resultMap="list">
+
+		SELECT *
+		FROM EVENT
+		ORDER BY
+		eventnum DESC
+
+	</select>
+	<!-- 이벤트 상세 -->
+	<select id="event_detail" resultType="EventVO">
+
+		SELECT *
+		FROM EVENT
+		WHERE eventnum = #{eventnum}
+
+	</select>
+
+	<update id="event_Update" parameterType="EventVO">
+		update event set eventtitle = #{eventtitle} , eventcontent = #{eventcontent}
+		where eventnum = #{eventnum}
+	</update>
+
+	<delete id="event_Delete">
+		delete from event
+		where eventnum = #{eventnum}
+	</delete>
+
+	<!-- 게시물 총 갯수 -->
+	<select id="event_Count" resultType="int">
+		select count(eventnum) from event
+	</select>
+
+</mapper>

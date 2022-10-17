@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.Admin_SQL">
+	
+	<insert id="registItem" parameterType="ItemVO">
+		<selectKey keyProperty="itemnum" resultType="Integer"
+			order="BEFORE">
+			select ITEMNUM_SEQ.nextval FROM DUAL
+		</selectKey>
+		insert into item values(#{itemnum},#{itemname},#{itemcost},#{itemcategory},#{itemstock},#{itemimg},{itemdetailimg} )
+	</insert>
+</mapper>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.Item_SQL">
+
+<!-- 	<resultMap type="ItemVO" id="itemList">
+		<result column="ITEMNUM" property="itemnum" />
+		<result column="ITEMNAME" property="itemname" />
+		<result column="ITEMCOST" property="itemcost"  />
+		<result column="ITEMCATEGORY" property="itemcategory" />
+		<result column="ITEMIMG" property="itemimg"/>
+	</resultMap> -->
+	 	<resultMap type="ItemVO" id="itemList">
+		<!-- <result column="ITEMNUM" property="itemnum" jdbcType="INTEGER" javaType="Integer" /> -->
+		<result column="ITEMNUM" property="itemnum" jdbcType="INTEGER" javaType="Integer" />
+		<result column="ITEMNAME" property="itemname" jdbcType="VARCHAR" javaType="String" />
+		<result column="ITEMCAT1" property="itemcat1" jdbcType="INTEGER" javaType="Integer" />
+		<result column="ITEMCAT2" property="itemcat2" jdbcType="INTEGER" javaType="Integer" />
+		<result column="ITEMIMG" property="itemimg" jdbcType="VARCHAR" javaType="String" />
+		<result column="ITEMDETAILIMG" property="itemdetailimg" jdbcType="VARCHAR" javaType="String" />
+		
+	</resultMap>
+		 	<resultMap type="ItemAttrVO" id="itemAttrList">
+		<result column="ITEMNUM" property="itemnum" jdbcType="INTEGER" javaType="Integer" />
+		<result column="ITEMNAME" property="itemname" jdbcType="VARCHAR" javaType="String" />
+		<result column="ITEMCODE" property="itemcode" jdbcType="INTEGER" javaType="Integer" />
+		<result column="ITEMCOLOR" property="itemcolor" jdbcType="VARCHAR" javaType="String" />
+		<result column="ITEMGB" property="itemgb" jdbcType="VARCHAR" javaType="String" />
+		<result column="ITEMCOST" property="itemcost" jdbcType="INTEGER" javaType="Integer" />
+		<result column="ITEMSTOCK" property="itemstock" jdbcType="INTEGER" javaType="Integer" />
+	</resultMap>  
+
+
+	<!-- 게시글 목록 -->
+	<select id="item_list" resultMap="itemList">
+
+		SELECT *
+		FROM ITEM
+		where ITEMCAT2 =${itemcat2}
+
+	</select>
+	
+		<select id="item_listL" resultMap="itemList">
+
+		SELECT *
+		FROM ITEM
+		where ITEMCAT1 =${itemcat1}
+
+	</select>
+
+	<!-- 이벤트 상세 -->
+	<select id="item_detail" resultType="ItemVO">
+
+		SELECT *
+		FROM ITEM
+		WHERE
+		ITEMNUM = #{itemnum}
+
+	</select>
+
+</mapper>
