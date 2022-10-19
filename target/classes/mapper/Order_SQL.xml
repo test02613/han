@@ -4,9 +4,9 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mapper.Order_SQL">
 	
-<!-- 	<resultMap type="OrderVO" id="orderList">
+	<resultMap type="OrderVO" id="orderList">
 		<result column="ID" property="id" jdbcType="VARCHAR" javaType="String" />
-		<result column="ORDERNUM" property="ordernum" jdbcType="VARCHAR" javaType="String" />
+		<result column="ORDERNUM" property="ordernum" jdbcType="INTEGER" javaType="Integer" />
 		<result column="SHIPPINGNUM" property="shippingnum" jdbcType="VARCHAR" javaType="String" />
 		<result column="SHIPPINGCOST" property="shippingcost" jdbcType="VARCHAR" javaType="String" />
 		<result column="ORDERCOST" property="ordercost" jdbcType="VARCHAR" javaType="String"/>
@@ -18,9 +18,8 @@
 		<result column="MOBILE" property="mobile" jdbcType="VARCHAR" javaType="String" />
 		<result column="NAME" property="name" jdbcType="VARCHAR" javaType="String" />
 		<result column="ITEMCODE" property="itemcode" jdbcType="INTEGER" javaType="Integer" />
-	</resultMap>   -->
-
-
+	</resultMap>
+	
 	<insert id="order_insert" parameterType="OrderVO">
 		<selectKey keyProperty="ordernum" resultType="Integer"
 			order="BEFORE">
@@ -30,5 +29,9 @@
 		VALUES(#{id},#{ordernum},0,0,#{ordercost},sysdate,0,#{postcode},#{address},#{addressdetail},0,#{name},#{itemcode})
 	</insert>
 	
-
+<!-- 	<select id="mypage_order" resultMap="orderList">
+		select *
+		from ordertable
+		where id=#{id}
+	</select> -->
 </mapper>

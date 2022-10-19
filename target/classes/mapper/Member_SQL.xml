@@ -69,5 +69,22 @@
 		where id=#{id}
 		
 	</update>
+	
+	<!-- 멤버 상세 -->
+	<select id="member_detail" resultType="MemberVO" >
+
+		SELECT *
+		FROM MEMBER
+		WHERE ID = #{id}
+
+	</select>
+	
+	<!-- 회원 정보 수정 -->
+	<update id="mypage_update" parameterType="MemberVO">
+		UPDATE MEMBER
+		SET NAME=#{name},PW=#{pw}
+		WHERE ID=#{id}
+		
+	</update>
 
 </mapper>
