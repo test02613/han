@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="mapper.Mypage_SQL">
+<mapper namespace="mapper.Review_SQL">
 	
-	<resultMap type="OrderVO" id="orderList2">
+	<resultMap type="OrderVO" id="orderList3">
 		<result column="ID" property="id" jdbcType="VARCHAR" javaType="String" />
 		<result column="ORDERNUM" property="ordernum" jdbcType="INTEGER" javaType="Integer" />
 		<result column="SHIPPINGNUM" property="shippingnum" jdbcType="VARCHAR" javaType="String" />
@@ -18,13 +18,12 @@
 		<result column="MOBILE" property="mobile" jdbcType="VARCHAR" javaType="String" />
 		<result column="NAME" property="name" jdbcType="VARCHAR" javaType="String" />
 		<result column="ITEMCODE" property="itemcode" jdbcType="INTEGER" javaType="Integer" />
-		<result column="REVIEW" property="review" jdbcType="INTEGER" javaType="Integer" />
-		<collection property="itemattrvo" resultMap="itemAttrList2"></collection>
- 		<collection property="itemvo" resultMap="itemList2"></collection>
- 		<!-- <collection property="reviewvo" resultMap="reviewlist"></collection> -->
+		<collection  property="itemattrvo" resultMap="itemAttrList3"></collection >
+ 		<collection  property="itemvo" resultMap="itemList3"></collection >
+ 		<collection  property="reviewvo" resultMap="reviewlist2"></collection >
 	</resultMap> 
 	
-		<resultMap type="ItemVO" id="itemList2">
+		<resultMap type="ItemVO" id="itemList3">
 		<result column="ITEMNUM" property="itemnum" jdbcType="INTEGER" javaType="Integer" />
 		<result column="ITEMNAME" property="itemname" jdbcType="VARCHAR" javaType="String" />
 	 	<result column="ITEMCAT1" property="itemcat1" jdbcType="INTEGER" javaType="Integer" />
@@ -33,7 +32,7 @@
 		<result column="ITEMDETAILIMG" property="itemdetailimg" jdbcType="VARCHAR" javaType="String" />
 	</resultMap>
 		
-	<resultMap type="ItemAttrVO" id="itemAttrList2">
+	<resultMap type="ItemAttrVO" id="itemAttrList3">
 		<result column="ITEMNUM" property="itemnum" jdbcType="INTEGER" javaType="Integer" />
 		<result column="ITEMCODE" property="itemcode" jdbcType="INTEGER" javaType="Integer" />
 		<result column="ITEMNAME" property="itemname" jdbcType="VARCHAR" javaType="String" />
@@ -43,7 +42,7 @@
 		<result column="ITEMGB" property="itemgb" jdbcType="VARCHAR" javaType="String" />
 	</resultMap>  
 	
-<!-- 	<resultMap type="ReviewVO" id="reviewlist">
+	<resultMap type="ReviewVO" id="reviewlist2">
 		<result column="ITEMNUM" property="itemnum" jdbcType="INTEGER" javaType="Integer" />
 		<result column="ID" property="id" jdbcType="VARCHAR" javaType="String" />
 		<result column="REVIEWNUM" property="reviewnum" jdbcType="INTEGER" javaType="Integer" />
@@ -52,44 +51,53 @@
 		<result column="REVIEWCONTENT" property="reviewcontent" jdbcType="VARCHAR" javaType="String" />
 		<result column="REVIEWPW" property="reviewpw" jdbcType="VARCHAR" javaType="String" />
 		<result column="ORDERNUM" property="ordernum" jdbcType="INTEGER" javaType="Integer" />
-	</resultMap>   -->
-
-	<select id="mypage_order" resultMap="orderList2">
-		<!-- select a.ordernum, a.ordercost, a.orderdate, a.postcode, a.address, a.addressdetail, a.mobile, b.itemcode, b.itemname, b.itemcolor, b.itemgb, c.itemimg -->
-		select *
-		from ordertable a, itemattr b, item c
-		where a.itemcode = b.itemcode and b.itemnum = c.itemnum and a.id=#{id}
-		order by a.ordernum 
-	</select>
+	</resultMap>  
 	
-<!-- 	<insert id="review_insert" parameterType="ReviewVO" >
+	<insert id="review_insert" parameterType="ReviewVO" >
 		<selectKey keyProperty="reviewnum" resultType="Integer" order="BEFORE">
 			select REVIEWNUM_SEQ.nextval FROM DUAL
 		</selectKey>
 		insert into REVIEW
-		values(1,#{id},#{reviewnum},sysdate,#{reviewtitle},#{reviewcontent},1)
+		values(#{itemnum},#{id},#{reviewnum},sysdate,#{reviewtitle},#{reviewcontent},1,#{ordernum})
 		
 	</insert>
 	
-	<update id="review_check" parameterType="OrderVO">
+	<update id="review_check" parameterType="OrderVO" >
 		update ordertable
 		set review = 1
 		where ordernum = #{ordernum}
 	</update>
 	
-	<select id="review_list" resultMap="reviewlist">
+	<select id="review_list" resultMap="reviewlist2">
 		select *
 		from review
 		order by reviewnum desc
 		 
 	</select>
 	
-	<select id="review_detail" resultMap="orderList2">
+	<select id="review_detail" resultType="ReviewVO">
 		
 		select *
-		from ordertable a, itemattr b, item c, review d
-		where a.itemcode = b.itemcode and b.itemnum = c.itemnum and a.id = d.id and a.ordernum=#{ordernum}
-		
+		from review
+		where reviewnum = #{reviewnum}
 	</select>
-	 -->
+	
+	<update id="review_Update" parameterType="ReviewVO">
+		update review
+		set reviewtitle = #{reviewtitle} , reviewcontent = #{reviewcontent}
+		where reviewnum = #{reviewnum}
+	</update>
+	
+	<delete id="review_Delete">
+		delete from review
+		where reviewnum = #{reviewnum}
+	</delete>
+	
+	<update id="review_check_delete" parameterType="OrderVO">
+		update ordertable
+		set review = ''
+		where ordernum = #{ordernum}
+	</update>
+	
+	
 </mapper>

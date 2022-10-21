@@ -14,41 +14,39 @@
 
 <style>
 #wrapper {
-   width: 1000px;
-   margin: auto;
-   margin-top: 30px;
+	width: 1000px;
+	margin: auto;
+	margin-top: 30px;
 }
 
 /* 이벤트 타이틀 */
 #contents {
-   height : 100px;
-   color : #24292F;
-   font-size : 40px;
-   margin-top : 20px;
-   text-align: center;
+	height: 100px;
+	color: #24292F;
+	font-size: 40px;
+	margin-top: 20px;
+	text-align: center;
 }
 
 /* 게시판 상단 타이틀 */
 #title {
-   text-align: center;
-   align-content: center;
+	text-align: center;
+	align-content: center;
 }
 
 /* 목록에 마우스 가져다대면 회색으로 처리함 */
 #list:hover {
-   background-color : lightgray;
+	background-color: lightgray;
 }
 /* 게시글번호, 작성일자 가운데정렬 */
-#center{
-   text-align: center;
+#center {
+	text-align: center;
 }
 
 button {
-   text-align: center;
-   align-content: left;
+	text-align: center;
+	align-content: left;
 }
-
-
 </style>
 
 </head>
@@ -58,38 +56,42 @@ button {
 	<!-- 게시판 부트스트랩 -->
 	<div class="wrapper">
 		<div id="wrapper">
-		<h1>이벤트</h1>
-			<table class="table" >
-				
+			<h1>리뷰</h1>
+			<table class="table">
+
 				<thead class="table-dark">
-					<tr >
+					<tr>
 						<th id="title" width="100" scope="col">#</th>
-						<th id="title"   scope="col">제목</th>
-						<th id="title" width="100"scope="col">작성일</th>
-						
-						
+						<th id="title" scope="col">제목</th>
+						<th id="title" width="100" scope="col">작성일</th>
+
+
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach items="${list}" var="list">
-						
-						<tr onClick="location.href='${path}/eventDetail?num=${list.eventnum}'"  style="cursor:pointer;">
-							<td id="title" style="text-decoration: none;"><c:out value="${list.eventnum}" /></td>
-							<td  ><c:out value="${list.eventtitle}" /></td>
-							<td style="text-decoration: none;"><c:out value="${list.eventdate}" /></td>
+
+						<tr
+							onClick="location.href='${path}/reviewDetail?num=${list.reviewnum}'"
+							style="cursor: pointer;">
+							<td id="title" style="text-decoration: none;"><c:out
+									value="${list.reviewnum}" /></td>
+							<td><c:out value="${list.reviewtitle}" /></td>
+							<td style="text-decoration: none;"><c:out
+									value="${list.reviewdate}" /></td>
 						</tr>
 					</c:forEach>
-					
-					
+
+
 				</tbody>
 			</table>
-			</div>
-			<c:if test="${admin eq 1}">
-			<div id="button">
-	<a href="/eventCreate"><button>글쓰기</button></a>
-	</div>
-	</c:if>
 		</div>
+
+		<div id="button">
+			<a href="/reviewCreate"><button>글쓰기</button></a>
+		</div>
+
+	</div>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"

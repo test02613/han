@@ -42,7 +42,7 @@
 		<a href="/mypoint">포인트</a>
 	</h1>
 	<h1>
-		<a href="/myreview">리뷰</a>
+		<a href="/review">리뷰</a>
 	</h1>
 	<h1>
 		<a href="/cart">장바구니</a>

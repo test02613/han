@@ -84,13 +84,6 @@ public class MypageController {
 		return "mypage/mypoint";
 	}
 
-	@RequestMapping(value = "/myreview", method = { RequestMethod.GET, RequestMethod.POST })
-	public String myreviewGET() throws Exception{
-		logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 리뷰관리 페이지 진입");
-		
-		return "mypage/myreview";
-	}
-
 	@RequestMapping(value = "/myqna", method = { RequestMethod.GET, RequestMethod.POST })
 	public String myqnaGET() throws Exception{
 		logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 큐엔에이 페이지 진입");
