@@ -5,10 +5,7 @@
 <mapper namespace="mapper.Admin_SQL">
 	
 	<insert id="registItem" parameterType="ItemVO">
-		<selectKey keyProperty="itemnum" resultType="Integer"
-			order="BEFORE">
-			select ITEMNUM_SEQ.nextval FROM DUAL
-		</selectKey>
-		insert into item values(#{itemnum},#{itemname},#{itemcost},#{itemcategory},#{itemstock},#{itemimg},{itemdetailimg} )
+		insert into item 
+		values(itemnum=#{itemnum},itemname=#{itemname},itemcat1=#{itemcat1},itemcat2=#{itemcat2},itemimg=#{itemimg},itemdtailimg=#{itemdetailimg} )
 	</insert>
 </mapper>

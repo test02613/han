@@ -105,7 +105,7 @@ public class ReviewController {
 		logger.info("vo"+num);
 		reviewService.reviewDelete(num);
 		/*model.addAttribute("update", vo1);*/
-		return "review/reviewDetail";
+		return "redirect:/review";
 	}
 	
 	@RequestMapping(value="/reviewCheckDelete", method= { RequestMethod.GET, RequestMethod.POST })

@@ -4,29 +4,30 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mapper.Item_SQL">
 
+
 <!-- 	<resultMap type="ItemVO" id="itemList">
 		<result column="ITEMNUM" property="itemnum" />
-		<result column="ITEMNAME" property="itemname" />
-		<result column="ITEMCOST" property="itemcost"  />
-		<result column="ITEMCATEGORY" property="itemcategory" />
-		<result column="ITEMIMG" property="itemimg"/>
+		<result column="ITEMNAME" property="itemname"/>
+	 	<result column="ITEMCAT1" property="itemcat1" />
+		<result column="ITEMCAT2" property="itemcat2" />
+		<result column="ITEMIMG" property="itemimg" />
+		<result column="ITEMDETAILIMG" property="itemdetailimg"/>
 	</resultMap> -->
-	 	<resultMap type="ItemVO" id="itemList">
-		<!-- <result column="ITEMNUM" property="itemnum" jdbcType="INTEGER" javaType="Integer" /> -->
+	
+	<resultMap type="ItemVO" id="itemList">
 		<result column="ITEMNUM" property="itemnum" jdbcType="INTEGER" javaType="Integer" />
 		<result column="ITEMNAME" property="itemname" jdbcType="VARCHAR" javaType="String" />
-		<result column="ITEMCAT1" property="itemcat1" jdbcType="INTEGER" javaType="Integer" />
+	 	<result column="ITEMCAT1" property="itemcat1" jdbcType="INTEGER" javaType="Integer" />
 		<result column="ITEMCAT2" property="itemcat2" jdbcType="INTEGER" javaType="Integer" />
 		<result column="ITEMIMG" property="itemimg" jdbcType="VARCHAR" javaType="String" />
 		<result column="ITEMDETAILIMG" property="itemdetailimg" jdbcType="VARCHAR" javaType="String" />
-		
 	</resultMap>
-		 	<resultMap type="ItemAttrVO" id="itemAttrList">
+		
+	<resultMap type="ItemAttrVO" id="itemAttrList">
 		<result column="ITEMNUM" property="itemnum" jdbcType="INTEGER" javaType="Integer" />
-		<result column="ITEMNAME" property="itemname" jdbcType="VARCHAR" javaType="String" />
 		<result column="ITEMCODE" property="itemcode" jdbcType="INTEGER" javaType="Integer" />
+		<result column="ITEMNAME" property="itemname" jdbcType="VARCHAR" javaType="String" />
 		<result column="ITEMCOLOR" property="itemcolor" jdbcType="VARCHAR" javaType="String" />
-		<result column="ITEMGB" property="itemgb" jdbcType="VARCHAR" javaType="String" />
 		<result column="ITEMCOST" property="itemcost" jdbcType="INTEGER" javaType="Integer" />
 		<result column="ITEMSTOCK" property="itemstock" jdbcType="INTEGER" javaType="Integer" />
 	</resultMap>  
@@ -37,7 +38,8 @@
 
 		SELECT *
 		FROM ITEM
-		where ITEMCAT2 =${itemcat2}
+		WHERE ITEMCAT2 = #{itemcat2}
+		
 
 	</select>
 	
@@ -45,7 +47,7 @@
 
 		SELECT *
 		FROM ITEM
-		where ITEMCAT1 =${itemcat1}
+		WHERE ITEMCAT1 = #{itemcat1}
 
 	</select>
 
@@ -57,6 +59,26 @@
 		WHERE
 		ITEMNUM = #{itemnum}
 
+	</select>
+	
+		<!-- 디테일 -->
+	<select id="item_attr" resultMap="itemAttrList">
+		SELECT *
+		FROM ITEMATTR
+		WHERE itemnum = #{itemnum}
+	</select>
+	
+		<select id="item_color" resultType="ItemAttrVO">
+		SELECT *
+		FROM ITEMATTR
+		where itemnum = #{itemnum}
+		AND itemcolor = #{itemcolor}
+	</select>
+	
+		<select id="order_item" resultMap="itemAttrList">
+		SELECT *
+		FROM ITEMATTR
+		WHERE itemcode = #{itemcode}
 	</select>
 
 </mapper>

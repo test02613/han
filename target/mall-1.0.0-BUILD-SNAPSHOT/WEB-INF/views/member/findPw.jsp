@@ -5,20 +5,22 @@
 <html>
 <head>
 <title>아이디 비밀번호 찾기</title>
-<link rel="stylesheet" href="/stu/css/login.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <style>
 #findMemform {
-	width: 500px;
-	margin: 0 auto;
-	margin-top: 50px;
-	text-align: center;
-	margin-bottom: 100px
+   width: 500px;
+   margin: 0 auto;
+   margin-top: 50px;
+   text-align: center;
+   margin-bottom: 100px
 }
 
 .contents {
-	font-size : 40px;
+   height : 100px;
+   color : #24292F;
+   font-size : 40px;
+   margin-top : 20px;
 }
 h2{
  width: 100%;
@@ -32,24 +34,30 @@ h2{
 }
 
 .findpwd>a {
-	float: right;
-	padding-left: 24px;
+   float: center;
+   margin-top : 50px;
+   padding : 10px;
 }
 
 .findpwd>input {
-	width: 100%;
-	height: 50px;
-	border: 1px solid #e0e0e0;
-	margin-bottom: 20px
+   width: 100%;
+   height: 50px;
+   border: 1px solid #e0e0e0;
+   border-radius : 10px;
+   margin-bottom: 20px;
 }
 
 button {
-	width: 100%;
-	height: 50px;
-	display: block;
-	border: none;
-	margin-top: 10px;
-	font-size: 20px;
+   width: 100%;
+   height: 50px;
+   display: block;
+   border: none;
+   border-radius: 10px;
+   margin-top: 20px;
+   margin-bottom: 40px;
+   font-size: 20px;
+   color : white;
+   background-color : #24292F;
 }
 /* 전체 화면을 덮는 layer, 로딩중일때 다른 이벤트를 방지하기 위함 */
 #loadingBar {
@@ -77,7 +85,6 @@ button {
 <body>
 <!-- 로딩중 -->
 	<div id="loadingBar" style="display:none;">
-        <img id="loading-image" src="img/Spinner.gif" alt="loading..." />
     </div>
 	<input type="hidden" name="alert" value="${resultMsg}"/>
 	<input type="hidden" name="isResult" value="${isResult}" />
@@ -87,9 +94,10 @@ button {
 			
 			<div class="findpwd">
 				 <c:if test="${pw != null }"><h2>이메일로 임시 비밀번호를 발송하였습니다.</h2></c:if>
-				 <c:if test="${pw == null }"><input type="text" class="form-control" name="id" id="MEMBER_ID" placeholder="아이디">
-				<input type="email" class="form-control" name="email" id="MEMBER_EMAIL" placeholder="이메일주소"></c:if>
-
+				 <c:if test="${pw == null }"><input type="text" class="form-control" name="id" id="id" placeholder="아이디">
+				<input type="email" class="form-control" name="email" id="email" placeholder="이메일주소"></c:if>
+				<a href="/login">로그인</a>
+				<a href="/findId">아이디 찾기</a>
 				<button class="defaultBtn loginBtn" type="submit" id="pwResetBtn">비밀번호 재설정</button>
 			</div>		
 			

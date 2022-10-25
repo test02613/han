@@ -3,6 +3,21 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mapper.Member_SQL">
+
+ 	<resultMap type="MemberVO" id="memberList">
+		<result column="ID" property="id" jdbcType="VARCHAR" javaType="String" />
+		<result column="NAME" property="name" jdbcType="VARCHAR" javaType="String" />
+	 	<result column="PW" property="pw" jdbcType="VARCHAR" javaType="String" />
+		<result column="EMAIL" property="email" jdbcType="VARCHAR" javaType="String" />
+		<result column="MOBILE" property="mobile" jdbcType="VARCHAR" javaType="String" />
+		<result column="POSTCODE" property="postcode" jdbcType="CHAR" javaType="String" />
+		<result column="ADDRESS" property="address" jdbcType="VARCHAR" javaType="String" />
+	 	<result column="ADDRESSDETAIL" property="addressDetail" jdbcType="VARCHAR" javaType="String" />
+		<result column="ADMIN" property="admin" jdbcType="CHAR" javaType="String" />
+		<result column="JOINDATE" property="joinDate" jdbcType="DATE" javaType="java.sql.Date" />
+		<result column="POINT" property="point" jdbcType="VARCHAR" javaType="String" />
+	</resultMap> 
+	
 	<insert id="memberJoin">
 		insert into member values(#{id},
 		#{name}, #{pw},#{email},0, #{postcode},
@@ -28,7 +43,7 @@
 	    AND id = #{id}
 		
 	</select>
-	<select id="loginAction_admin"  parameterType="MemberVO" resultType ="int" >
+	<select id="loginAction_admin"  parameterType="MemberVO" resultType ="String" >
 		
 			SELECT admin FROM member 
 	    WHERE pw = #{pw}
@@ -39,4 +54,37 @@
 	<select id="idCheck" resultType="int">
 		select count(*) from member where id = #{id}
 	</select>
+	
+	<select id="order_item"  parameterType="MemberVO" resultMap ="memberList" >
+		
+		SELECT * 
+		FROM member 
+	    WHERE id = #{id}
+
+	</select>
+	
+	<update id="use_point" parameterType="MemberVO">
+		update member
+		set point = #{point}
+		where id=#{id}
+		
+	</update>
+	
+	<!-- 멤버 상세 -->
+	<select id="member_detail" resultType="MemberVO" >
+
+		SELECT *
+		FROM MEMBER
+		WHERE ID = #{id}
+
+	</select>
+	
+	<!-- 회원 정보 수정 -->
+	<update id="mypage_update" parameterType="MemberVO">
+		UPDATE MEMBER
+		SET NAME=#{name},PW=#{pw}
+		WHERE ID=#{id}
+		
+	</update>
+
 </mapper>

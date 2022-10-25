@@ -38,7 +38,7 @@
 							</c:if></li>
 						<li><c:choose>
 								<c:when test="${admin eq 0}">
-									<a href="#">마이페이지</a>
+									<a href="/mypage">마이페이지</a>
 								</c:when>
 								<c:when test="${admin eq 1}">
 									<a href="/admin_main">관리자페이지</a>

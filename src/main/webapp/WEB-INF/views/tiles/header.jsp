@@ -60,7 +60,7 @@
                </div>
             </li>
             <li id="dropdown">
-               <div OnClick="location.href ='/itemListL?cat=6'" id="dropdown-menu">Accsessory</div>
+               <div OnClick="location.href ='/itemListL?cat=6'" id="dropdown-menu">Accessory</div>
                <div id="dropdown-content">
                <a href="/itemList?cat=61">case</a>
                <a href="/itemList?cat=62">cable</a>

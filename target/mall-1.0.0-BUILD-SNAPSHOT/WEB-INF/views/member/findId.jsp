@@ -17,41 +17,45 @@
    text-align: center;
    margin-bottom: 100px
 }
-h2{
- width: 100%;
-   height: 50px;
-   border: 1px solid #e0e0e0;
-   border-radius : 10px;
-   margin-bottom: 20px;
-   text-align: center;
-   padding-top: 10px;
 
-}
-
+/* 아이디 찾기 타이틀 */
 .contents {
+   height : 100px;
+   color : #24292F;
    font-size : 40px;
+   margin-top : 20px;
 }
 
+/* 아이디찾기 구성요소 : a태그들 */
 .findid>a {
-   float: right;
-   padding-left: 24px;
+   float: center;
+   margin-top : 50px;
+   padding : 10px;
 }
 
+/* 아이디찾기 구성요소 : 입력란 */
 .findid>input {
    width: 100%;
    height: 50px;
    border: 1px solid #e0e0e0;
-   margin-bottom: 20px
+   border-radius : 10px;
+   margin-bottom: 20px;
 }
 
+/* 아이디찾기 구성요소 : button */
 button {
    width: 100%;
    height: 50px;
    display: block;
    border: none;
-   margin-top: 10px;
+   border-radius: 10px;
+   margin-top: 20px;
+   margin-bottom: 40px;
    font-size: 20px;
+   color : white;
+   background-color : #24292F;
 }
+
 /* 전체 화면을 덮는 layer, 로딩중일때 다른 이벤트를 방지하기 위함 */
 #loadingBar {
     width: 100%;
@@ -65,6 +69,7 @@ button {
     z-index: 99;
     text-align: center;
 }
+
 /* 로딩중 이미지 위치 및 출력 순서 */
 #loading-image {
     position: absolute;
@@ -98,7 +103,8 @@ button {
             
            <input type="email" class="form-control" name="email"
                id="MEMBER_EMAIL" placeholder="이메일주소"></c:if>
-
+            <a href="/login">로그인</a>
+            <a href="/findPw">비밀번호 재설정</a>
             <button class="defaultBtn loginBtn" type="submit" id="findIdBtn">아이디 찾기</button>
          </div>
 
