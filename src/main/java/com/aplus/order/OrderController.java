@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.aplus.item.ItemAttrVO;
+import com.aplus.item.ItemService;
+import com.aplus.item.ItemVO;
 import com.aplus.model.MemberVO;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
 
 @Controller
@@ -23,12 +25,18 @@ public class OrderController {
 
 	@Autowired
 	private OrderService orderService;
+	@Autowired
+	private ItemService itemService;
+	
 
 	@RequestMapping(value = "/order", method = RequestMethod.GET)
 	   public String orderGET(Model model,Integer code,HttpSession session,MemberVO mem) throws Exception {
 	      logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 주문 페이지 진입");
 	      ItemAttrVO vo =orderService.order_item(code);//item 정보 가져오기
 	      model.addAttribute("item",vo);
+	      Integer num = vo.getItemnum();
+	      ItemVO itemvo = itemService.itemDetail(num);
+	      model.addAttribute("items",itemvo);
 	      String id = (String) session.getAttribute("id");//세션 id가져오기
 	      mem=orderService.member(id);//고객 정보 가져오기
 	      model.addAttribute("member", mem);

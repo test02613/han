@@ -231,7 +231,7 @@ function findAddr() {
               
                   <tr>
                            <td>
-                              <img src='' width="70px" height="70px">
+                              <img src="${items.itemimg}" width="70px" height="70px">
                            </td>
                      <td style="width:60px;">
                           <a href="">${item.itemname}</a> <br>

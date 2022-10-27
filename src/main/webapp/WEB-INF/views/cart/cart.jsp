@@ -44,26 +44,28 @@ h1 {
 		<!-- 게시판 부트스트랩 -->
 		<div class="wrapper">
 			<div id="wrapper">
-				<h1>아이템</h1>
+				<h1>장바구니</h1>
 				<table class="table">
 					<thead class="table-dark">
 						<tr>
-							<th id="title" width="100" scope="col">제품명</th>
-							<th id="title" scope="col">가격</th>
-							<th id="title" width="100" scope="col">이미지</th>
+							<th id="title" width="100">이미지</th>
+							<th id="title" scope="col">제품명</th>
+							<th id="title" width="100">가격</th>
+							<th id="title" width="100">색상,용량</th>
 							<th id="title" width="100" scope="col">삭제</th>
 						</tr>
 					</thead>
 					<tbody>
 						<c:forEach items="${list}" var="list">
 							<tr>
-								<td id="title" style="text-decoration: none;"><c:out
+								<td style="text-decoration: none;"><img
+									src="${list.itemimg}" style="width: 100px; height: 100px;" /></td>
+								<td id="itemname" style="text-decoration: none;"><c:out
 										value="${list.itemname}" /></td>
 								<td><c:out value="${list.itemcost}" /></td>
-								<td style="text-decoration: none;">
-								<img src="${list.itemimg}" /></td>
+								<td><c:out value="${list.itemattr}" /></td>
 								<td style="text-decoration: none;"><a
-									href='/cartDeleteAction?num=${list.itemcode}'><button
+									href='/cartDeleteAction?code=${list.itemcode}'><button
 											type="button">삭제</button></a></td>
 							</tr>
 						</c:forEach>

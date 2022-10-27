@@ -410,19 +410,19 @@ p {
 
 					</table>
 				</div>
-				
-				<div class="item_count" align="right" >
+
+				<div class="item_count" align="right">
 
 					<input type="text" name="p_num1" id="p_num1" size="2" maxlength="4"
-						class="p_num" value="2"> <span>
-						<i class="fas fa-arrow-alt-circle-up up"></i></span> <span>
-						<i class="fas fa-arrow-alt-circle-down down"></i></span>
+						class="p_num" value="2"> <span> <i
+						class="fas fa-arrow-alt-circle-up up"></i></span> <span> <i
+						class="fas fa-arrow-alt-circle-down down"></i></span>
 
 				</div>
 
 			</form>
-			
-			
+
+
 
 			<div class="totals-item totals-item-total"
 				style="float: left; margin-left: 400px;">
@@ -444,9 +444,8 @@ p {
 				onclick="fn_InsertLike()">
 				<font size="5px">♥</font>
 			</button>
-			<button style="width: 270px; height: 58px;"
-				class="btn btn-outline-danger" id="insertBasket"
-				onclick="fn_InsertBasket()">장바구니</button>
+			<button style="width: 270px; height: 58px;" onclick="fn_addCart()"
+				class="btn btn-outline-danger" id="insertBasket">장바구니</button>
 			<button style="width: 270px; height: 58px;"
 				class="btn btn-outline-danger" id="goodsOrder"
 				onclick="fn_GoodsOrder()">구매하기</button>
@@ -457,7 +456,7 @@ p {
 		</div>
 	</div>
 
-	</div>
+
 
 
 
@@ -531,6 +530,7 @@ p {
 
 
 <script type="text/javascript">
+
 var color ;
 var num ;
    $('#ColorList').on("change", function() {//셀렉트 박스
@@ -608,7 +608,43 @@ var num ;
             
             location.href = "/order?code="+code;
          }
-   } 
+   }//funtion 끝 
+   
+	$("#insertBasket").on("click", function() { // 장바구니
+	      
+	      if(num == undefined ){
+	         alert("상품을 선택해 주세요");
+	      }else{
+		$.ajax({
+			type : "get",
+			url : "/itemCode",
+			data : {
+				color : color,
+				num : num
+			},
+			async : false,//전역 변수 보내기
+			dataType : "json",
+			success : function(result) {
+				code = result;
+
+				console.log("확인 : " + result);
+				if (result) {
+					/* alert("완료"+code);  */
+					return code;
+				} else {
+					//alert("전송된 값 없음"+result);  
+				}
+			},
+			error : function() {
+				// alert("에러 발생"+result); 
+			}
+		});//아작스 끝
+	      
+		location.href = "/addCartAction?code=" + code;
+	      }
+	});
+	
+
    
    /* function order() { // 구매하기
       if(doubleSubmitCheck()) return; // 중복클릭 방지

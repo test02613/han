@@ -322,9 +322,6 @@
 												console.log("uploadpath2: "
 														+ uploadpath2);
 
-												/* var a = "C:\Users\hss61\Desktop\Java\works\teamproject\APLUS_Mall\src\main\webapp\resources\itemImg";
-												var b = "/resources/itemImg";
-												a = b; */
 
 												var itemImg = uploadpath2
 														+ "\\s_" + uuid + "-"
