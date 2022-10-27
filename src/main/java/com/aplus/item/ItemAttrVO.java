@@ -17,6 +17,5 @@ public class ItemAttrVO {
 	   private String itemcolor;
 	   private Integer itemcost;
 	   private Integer itemstock;
-	   private String itemgb;
 		   
 }

@@ -20,80 +20,159 @@
 				<table border="1" summary="">
 
 					<tbody>
-						<tr>
-							<th scope="row">상품번호</th>
-							<td><input id="itemnum" name="itemnum" class="inputTypeText"
-								value="" type="text" />
-						</tr>
-						<tr>
-							<th scope="row">상품명</th>
-							<td><input id="itemname" name="itemname"
-								class="inputTypeText" value="" type="text" />
-						</tr>
-						<tr id="category">
-							<th>카테고리1</th>
-							<td><select id="itemcategory" name="itemcat1">
-									<option value="" selected="selected">카테고리를 선택 해주세요.</option>
-									<option value="1">MAC</option>
-									<option value="2">iPad</option>
-									<option value="3">iPhone</option>
-									<option value="4">Apple Watch</option>
-									<option value="5">AirPods</option>
-									<option value="6">Accessory</option>
-							</select></td>
-						</tr>
-						<tr id="category">
-							<th>카테고리2</th>
-							<td><select id="itemcategory" name="itemcat2">
-									<option value="" selected="selected">카테고리를 선택 해주세요.</option>
-									<option value="11">iMAC</option>
-									<option value="12">MacBook Pro</option>
-									<option value="13">MacBook Air</option>
-									<option value="21">iPad Pro</option>
-									<option value="22">iPad Air</option>
-									<option value="23">iPad</option>
-									<option value="24">iPad mini</option>
-									<option value="31">iPhone14</option>
-									<option value="32">iPhone13</option>
-									<option value="33">iPhoneSE</option>
-									<option value="34">iPhone12</option>
-									<option value="41">Apple Watch Ultra</option>
-									<option value="42">Apple Watch 8</option>
-									<option value="43">Apple Watch SE</option>
-									<option value="44">Apple Watch Hermes</option>
-									<option value="51">AirPods2</option>
-									<option value="52">AirPods3</option>
-									<option value="53">AirPods Pro2</option>
-									<option value="54">AirPods Max</option>
-									<option value="61">case</option>
-									<option value="62">cable</option>
-									<option value="63">MacSafe</option>
-									<option value="64">AirTag</option>
-							</select></td>
-						</tr>
-						<tr>
-							<th scope="row" class="uploadDiv">썸네일 이미지 업로드</th>
-							<td><input type="file" id="input_img" name="uploadFile"
-								style="height: 30px;" multiple />
+						<c:if test="${item.itemnum == null }">
+							<tr>
+								<th scope="row">상품번호</th>
+								<td><input id="itemnum" name="itemnum"
+									class="inputTypeText" value="" type="text" />
+							</tr>
+							<tr>
+								<th scope="row">상품명</th>
+								<td><input id="itemname" name="itemname"
+									class="inputTypeText" value="" type="text" />
+							</tr>
+							<tr id="category">
+								<th>카테고리1</th>
+								<td><select id="itemcategory" name="itemcat1">
+										<option value="" selected="selected">카테고리를 선택 해주세요.</option>
+										<option value="1">MAC</option>
+										<option value="2">iPad</option>
+										<option value="3">iPhone</option>
+										<option value="4">Apple Watch</option>
+										<option value="5">AirPods</option>
+										<option value="6">Accessory</option>
+								</select></td>
+							</tr>
+							<tr id="category">
+								<th>카테고리2</th>
+								<td><select id="itemcategory" name="itemcat2">
+										<option value="" selected="selected">카테고리를 선택 해주세요.</option>
+										<option value="11">iMAC</option>
+										<option value="12">MacBook Pro</option>
+										<option value="13">MacBook Air</option>
+										<option value="21">iPad Pro</option>
+										<option value="22">iPad Air</option>
+										<option value="23">iPad</option>
+										<option value="24">iPad mini</option>
+										<option value="31">iPhone14</option>
+										<option value="32">iPhone13</option>
+										<option value="33">iPhoneSE</option>
+										<option value="34">iPhone12</option>
+										<option value="41">Apple Watch Ultra</option>
+										<option value="42">Apple Watch 8</option>
+										<option value="43">Apple Watch SE</option>
+										<option value="44">Apple Watch Hermes</option>
+										<option value="51">AirPods2</option>
+										<option value="52">AirPods3</option>
+										<option value="53">AirPods Pro2</option>
+										<option value="54">AirPods Max</option>
+										<option value="61">case</option>
+										<option value="62">cable</option>
+										<option value="63">MacSafe</option>
+										<option value="64">AirTag</option>
+								</select></td>
+							</tr>
+							<tr>
+								<th scope="row" class="uploadDiv">썸네일 이미지 업로드</th>
+								<td><input type="file" id="input_img" name="uploadFile"
+									style="height: 30px;" multiple />
 
-								<button type="button" id="uploadBtn">Upload</button>
-								<div class="img_wrap"></div></td>
-						</tr>
-						<tr>
-							<th scope="row">썸네일 이미지 등록</th>
-							<td><input type="text" id="itemImg" name="itemimg"
-								style="height: 30px;" value="" readonly></td>
-						<tr>
-							<th scope="row">상세 이미지 등록</th>
-							<td><input type="text" id="itemDetailImg"
-								name="itemdetailimg" style="height: 30px;" value="" readonly></td>
-						</tr>
+									<button type="button" id="uploadBtn">Upload</button>
+									<div class="img_wrap"></div></td>
+							</tr>
+							<tr>
+								<th scope="row">썸네일 이미지 등록</th>
+								<td><input type="text" id="itemImg" name="itemimg"
+									style="height: 30px;" value="" readonly></td>
+							<tr>
+								<th scope="row">상세 이미지 등록</th>
+								<td><input type="text" id="itemDetailImg"
+									name="itemdetailimg" style="height: 30px;" value="" readonly></td>
+							</tr>
+						</c:if>
+
+						<c:if test="${item.itemnum != null }">
+							<tr>
+								<th scope="row">상품번호</th>
+								<td><input id="itemnum" name="itemnum"
+									class="inputTypeText" value="${item.itemnum }" type="text" readonly/>
+							</tr>
+							<tr>
+								<th scope="row">상품명</th>
+								<td><input id="itemname" name="itemname"
+									class="inputTypeText" value="${item.itemname }" type="text" />
+							</tr>
+							<tr id="category">
+								<th>카테고리1</th>
+								<td><select id="itemcategory" name="itemcat1">
+										<option value="${item.itemcat1 }" selected="selected">카테고리를 선택 해주세요.</option>
+										<option value="1">MAC</option>
+										<option value="2">iPad</option>
+										<option value="3">iPhone</option>
+										<option value="4">Apple Watch</option>
+										<option value="5">AirPods</option>
+										<option value="6">Accessory</option>
+								</select></td>
+							</tr>
+							<tr id="category">
+								<th>카테고리2</th>
+								<td><select id="itemcategory" name="itemcat2">
+										<option value="${item.itemcat2 }" selected="selected">카테고리를 선택 해주세요.</option>
+										<option value="11">iMAC</option>
+										<option value="12">MacBook Pro</option>
+										<option value="13">MacBook Air</option>
+										<option value="21">iPad Pro</option>
+										<option value="22">iPad Air</option>
+										<option value="23">iPad</option>
+										<option value="24">iPad mini</option>
+										<option value="31">iPhone14</option>
+										<option value="32">iPhone13</option>
+										<option value="33">iPhoneSE</option>
+										<option value="34">iPhone12</option>
+										<option value="41">Apple Watch Ultra</option>
+										<option value="42">Apple Watch 8</option>
+										<option value="43">Apple Watch SE</option>
+										<option value="44">Apple Watch Hermes</option>
+										<option value="51">AirPods2</option>
+										<option value="52">AirPods3</option>
+										<option value="53">AirPods Pro2</option>
+										<option value="54">AirPods Max</option>
+										<option value="61">case</option>
+										<option value="62">cable</option>
+										<option value="63">MacSafe</option>
+										<option value="64">AirTag</option>
+								</select></td>
+							</tr>
+							<tr>
+								<th scope="row" class="uploadDiv">썸네일 이미지 업로드</th>
+								<td><input type="file" id="input_img" name="uploadFile"
+									style="height: 30px;" multiple />
+
+									<button type="button" id="uploadBtn">Upload</button>
+									<div class="img_wrap"></div></td>
+							</tr>
+							<tr>
+								<th scope="row">썸네일 이미지 등록</th>
+								<td><input type="text" id="itemImg" name="itemimg"
+									style="height: 30px;" value="${item.itemimg }" readonly></td>
+							<tr>
+								<th scope="row">상세 이미지 등록</th>
+								<td><input type="text" id="itemDetailImg"
+									name="itemdetailimg" style="height: 30px;" value="${item.itemdetailimg }" readonly></td>
+							</tr>
+						</c:if>
+
 
 					</tbody>
 				</table>
 			</div>
 			<div class="regist_button_wrap">
-				<input type="button" class="regist_button" value="상품 등록하기">
+				<c:if test="${item.itemnum == null }">
+					<input type="button" class="regist_button" value="상품 등록하기">
+				</c:if>
+				<c:if test="${item.itemnum != null }">
+					<input type="button" class="update_button" value="상품 등록하기">
+				</c:if>
 			</div>
 		</div>
 	</form>
@@ -109,6 +188,18 @@
 
 			})
 		})
+		var num = document.getElementById("itemnum").value;
+		$(document).ready(
+				function() {
+					// 상품등록 버튼
+					$(".update_button").click(
+							function() {
+								$("#item_regist_form").attr("action",
+										"/itemUpdateAction?num=" + num);
+								$("#item_regist_form").submit();
+
+							})
+				})
 
 		var sel_file = [];
 
@@ -171,81 +262,92 @@
 			}
 
 			//Upload 버튼 클릭 시 수행
-			$("#uploadBtn").on(
-					"click",
-					function(e) {
-						//FormData : 가상의 <form> 태그
-						//Ajax를 이용하는 파일 업로드는 FormData를 이용
-						var formData = new FormData();
-						//<input type="file" 요소
-						var inputFile = $("input[name='uploadFile']");
-						//<input type="file" 요소 내의 이미지들
+			$("#uploadBtn")
+					.on(
+							"click",
+							function(e) {
+								//FormData : 가상의 <form> 태그
+								//Ajax를 이용하는 파일 업로드는 FormData를 이용
+								var formData = new FormData();
+								//<input type="file" 요소
+								var inputFile = $("input[name='uploadFile']");
+								//<input type="file" 요소 내의 이미지들
 
-						console.log("inputFile[0]:::::::::::::");
-						var files = inputFile[0].files;
+								console.log("inputFile[0]:::::::::::::");
+								var files = inputFile[0].files;
 
-						console.log("files : " + files);
+								console.log("files : " + files);
 
-						for (var i = 0; i < files.length; i++) {
-							console.log(files[i]);
-							//확장자, 크기 체크
-							//function checkExtension(fileName, fileSize){
-							if (!checkExtension(files[i].name, files[i].size)) {//!true라면 실패
-								return false;
-							}
+								for (var i = 0; i < files.length; i++) {
+									console.log(files[i]);
+									//확장자, 크기 체크
+									//function checkExtension(fileName, fileSize){
+									if (!checkExtension(files[i].name,
+											files[i].size)) {//!true라면 실패
+										return false;
+									}
 
-							formData.append("uploadFile", files[i]);
-						}
+									formData.append("uploadFile", files[i]);
+								}
 
-						//없어?카드가?또?
-						//processData,contentType은 반드시 false여야 전송됨
-						$
-								.ajax({
-									url : '/uploadAjaxAction',
-									processData : false,
-									contentType : false,
-									data : formData,
-									type : 'POST',
-									dataType : 'json',
-									async : false,
-									success : function(result) {
+								//없어?카드가?또?
+								//processData,contentType은 반드시 false여야 전송됨
+								$
+										.ajax({
+											url : '/uploadAjaxAction',
+											processData : false,
+											contentType : false,
+											data : formData,
+											type : 'POST',
+											dataType : 'json',
+											async : false,
+											success : function(result) {
 
-										var data = JSON.stringify(result);
-										console.log("result1 : " + data);
-										console.log(typeof 'data');
-										var data2 = JSON.parse(data);
-										console.log("result2 : " + data2);
-										console.log(typeof 'data2');
+												var data = JSON
+														.stringify(result);
+												console
+														.log("result1 : "
+																+ data);
+												console.log(typeof 'data');
+												var data2 = JSON.parse(data);
+												console.log("result2 : "
+														+ data2);
+												console.log(typeof 'data2');
 
-										var filename = data2[0].fileName;
-										var uuid = data2[0].uuid;
-										var uploadpath = data2[0].uploadPath;
-										var uploadpath2 = uploadpath.slice(-28);
-										console.log("uploadpath2: " + uploadpath2);
-										
-										/* var a = "C:\Users\hss61\Desktop\Java\works\teamproject\APLUS_Mall\src\main\webapp\resources\itemImg";
-										var b = "/resources/itemImg";
-										a = b; */
-										
-										var itemImg = uploadpath2 + "\\s_"
-												+ uuid + "-" + filename;
-										var itemDetailImg = uploadpath2 + "\\"
-												+ uuid + "-" + filename;
-										console.log("filename: " + filename);
-										console.log("uuid: " + uuid);
-										console
-												.log("uploadpath: "
+												var filename = data2[0].fileName;
+												var uuid = data2[0].uuid;
+												var uploadpath = data2[0].uploadPath;
+												var uploadpath2 = uploadpath
+														.slice(-28);
+												console.log("uploadpath2: "
 														+ uploadpath2);
 
-										$('input[name=itemimg]').attr('value',
-												itemImg);
-										$('input[name=itemdetailimg]').attr(
-												'value', itemDetailImg);
+												/* var a = "C:\Users\hss61\Desktop\Java\works\teamproject\APLUS_Mall\src\main\webapp\resources\itemImg";
+												var b = "/resources/itemImg";
+												a = b; */
 
-									}
-								});
+												var itemImg = uploadpath2
+														+ "\\s_" + uuid + "-"
+														+ filename;
+												var itemDetailImg = uploadpath2
+														+ "\\" + uuid + "-"
+														+ filename;
+												console.log("filename: "
+														+ filename);
+												console.log("uuid: " + uuid);
+												console.log("uploadpath: "
+														+ uploadpath2);
 
-					});
+												$('input[name=itemimg]').attr(
+														'value', itemImg);
+												$('input[name=itemdetailimg]')
+														.attr('value',
+																itemDetailImg);
+
+											}
+										});
+
+							});
 		});
 	</script>
 </body>

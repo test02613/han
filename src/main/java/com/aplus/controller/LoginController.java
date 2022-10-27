@@ -58,10 +58,10 @@ public class LoginController {
          mav.setViewName("main/main"); // 뷰의 이름
          session.setAttribute("admin", vo.getAdmin());
 
-      } else { // 로그인 실패 시
-         mav.setViewName("member/login");
-         mav.addObject("message", "보노보노");
-      }
+      } else { //로그인 실패 시(탈퇴회원, 블랙회원)
+			mav.setViewName("member/login");
+			mav.addObject("message", "탈퇴한 회원이거나, 해당하는 아이디가 없습니다.");
+		}
       logger.info("Name:" + name);
       logger.info("vo:" + vo);
       /* logger.info("admin:"+admin); */
@@ -85,7 +85,7 @@ public class LoginController {
    
    @RequestMapping(value = "/findPw", method = RequestMethod.GET)
    public String findPwGET() {
-      logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 아이디찾기 페이지 진입");
+      logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 비밀번호찾기 페이지 진입");
       return "member/findPw";
    }
    

@@ -47,7 +47,7 @@
 								<a href="/login">마이페이지</a>
 							</c:if></li>
 						<li><c:if test="${name != null}">
-								<a href="#">장바구니</a>
+								<a href="cart">장바구니</a>
 							</c:if> <c:if test="${name == null}">
 								<a href="/login">장바구니</a>
 							</c:if></li>

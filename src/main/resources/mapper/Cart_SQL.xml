@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.Cart_SQL">
+	
+	<resultMap type="CartVO" id="cartList">
+	<result column="ID" property="id" />
+	<result column="ITEMNAME" property="itemname" />
+	<result column="ITEMCODE" property="itemcode" />
+	<result column="ITEMCOST" property="itemcost" />
+	<result column="ITEMIMG" property="itemimg" />
+	</resultMap>
+	
+		<insert id="insert_cart">
+		insert into cart values(#{id},#{itemname),#{itemcode},#{itemcost},#{itemimg})
+		</insert>
+</mapper>

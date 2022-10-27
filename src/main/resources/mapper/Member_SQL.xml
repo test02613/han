@@ -4,87 +4,122 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mapper.Member_SQL">
 
- 	<resultMap type="MemberVO" id="memberList">
-		<result column="ID" property="id" jdbcType="VARCHAR" javaType="String" />
-		<result column="NAME" property="name" jdbcType="VARCHAR" javaType="String" />
-	 	<result column="PW" property="pw" jdbcType="VARCHAR" javaType="String" />
-		<result column="EMAIL" property="email" jdbcType="VARCHAR" javaType="String" />
-		<result column="MOBILE" property="mobile" jdbcType="VARCHAR" javaType="String" />
-		<result column="POSTCODE" property="postcode" jdbcType="CHAR" javaType="String" />
-		<result column="ADDRESS" property="address" jdbcType="VARCHAR" javaType="String" />
-	 	<result column="ADDRESSDETAIL" property="addressDetail" jdbcType="VARCHAR" javaType="String" />
-		<result column="ADMIN" property="admin" jdbcType="CHAR" javaType="String" />
-		<result column="JOINDATE" property="joinDate" jdbcType="DATE" javaType="java.sql.Date" />
-		<result column="POINT" property="point" jdbcType="VARCHAR" javaType="String" />
-	</resultMap> 
-	
+	<resultMap type="MemberVO" id="memberList">
+		<result column="ID" property="id" jdbcType="VARCHAR"
+			javaType="String" />
+		<result column="NAME" property="name" jdbcType="VARCHAR"
+			javaType="String" />
+		<result column="PW" property="pw" jdbcType="VARCHAR"
+			javaType="String" />
+		<result column="EMAIL" property="email" jdbcType="VARCHAR"
+			javaType="String" />
+		<result column="MOBILE" property="mobile" jdbcType="VARCHAR"
+			javaType="String" />
+		<result column="POSTCODE" property="postcode" jdbcType="CHAR"
+			javaType="String" />
+		<result column="ADDRESS" property="address" jdbcType="VARCHAR"
+			javaType="String" />
+		<result column="ADDRESSDETAIL" property="addressDetail"
+			jdbcType="VARCHAR" javaType="String" />
+		<result column="ADMIN" property="admin" jdbcType="CHAR"
+			javaType="String" />
+		<result column="JOINDATE" property="joinDate" jdbcType="DATE"
+			javaType="java.sql.Date" />
+		<result column="POINT" property="point" jdbcType="VARCHAR"
+			javaType="String" />
+	</resultMap>
+
 	<insert id="memberJoin">
 		insert into member values(#{id},
-		#{name}, #{pw},#{email},0, #{postcode},
+		#{name},
+		#{pw},#{email},0, #{postcode},
 		#{address}, #{addressDetail}, 0,
 		sysdate, 5000000, 0 )
 	</insert>
 	<select id="findId" parameterType="MemberVO" resultType="String">
-		select id from member where name = #{name} AND email = #{email}
+		select
+		id from member where name = #{name} AND email = #{email}
 	</select>
-	
+
 	<select id="findPw" parameterType="MemberVO" resultType="String">
-		select pw from member where id = #{id} AND email = #{email}
+		select
+		pw from member where id = #{id} AND email = #{email}
 	</select>
-	
-	<update id="updatePw" parameterType="MemberVO" >
-	update member set pw = #{pw} where id = #{id}
+
+	<update id="updatePw" parameterType="MemberVO">
+		update member set pw = #{pw} where id = #{id}
 	</update>
 
-	<select id="loginAction"  parameterType="MemberVO" resultType ="String" >
-		
-			SELECT * FROM member 
-	    WHERE pw = #{pw}
-	    AND id = #{id}
-		
+	<select id="loginAction" parameterType="MemberVO"
+		resultType="String">
+
+		SELECT * FROM member
+		WHERE pw = #{pw}
+		AND id = #{id}
+
 	</select>
-	<select id="loginAction_admin"  parameterType="MemberVO" resultType ="String" >
-		
-			SELECT admin FROM member 
-	    WHERE pw = #{pw}
-	    AND id = #{id}
-		
+	<select id="loginAction_admin" parameterType="MemberVO"
+		resultType="String">
+
+		SELECT admin FROM member
+		WHERE pw = #{pw}
+		AND id = #{id}
+
 	</select>
 	<!-- 아이디 중복검사 -->
 	<select id="idCheck" resultType="int">
-		select count(*) from member where id = #{id}
+		select count(*) from member
+		where id = #{id}
 	</select>
-	
-	<select id="order_item"  parameterType="MemberVO" resultMap ="memberList" >
-		
-		SELECT * 
-		FROM member 
-	    WHERE id = #{id}
 
-	</select>
-	
-	<update id="use_point" parameterType="MemberVO">
-		update member
-		set point = #{point}
-		where id=#{id}
-		
-	</update>
-	
-	<!-- 멤버 상세 -->
-	<select id="member_detail" resultType="MemberVO" >
+	<select id="order_item" parameterType="MemberVO"
+		resultMap="memberList">
 
 		SELECT *
-		FROM MEMBER
+		FROM member
+		WHERE id = #{id}
+
+	</select>
+
+	<update id="use_point" parameterType="MemberVO">
+		update member
+		set point =
+		#{point}
+		where id=#{id}
+
+	</update>
+
+	<!-- 멤버 상세 -->
+	<select id="member_detail" resultType="MemberVO">
+
+		SELECT *
+		FROM
+		MEMBER
 		WHERE ID = #{id}
 
 	</select>
-	
+
 	<!-- 회원 정보 수정 -->
 	<update id="mypage_update" parameterType="MemberVO">
 		UPDATE MEMBER
-		SET NAME=#{name},PW=#{pw}
+		SET
+		NAME=#{name},PW=#{pw}
 		WHERE ID=#{id}
-		
+
+	</update>
+	<!-- 회원탈퇴시 leave 0->1로 변경 -->
+	<update id="member_bye" parameterType="MemberVO">
+		UPDATE MEMBER
+		SET leave = 1
+		WHERE id = #{id}
+	</update>
+
+	<!-- 포인트 충전 -->
+	<update id="mypoint_update" parameterType="MemberVO">
+		UPDATE MEMBER
+		SET point
+		= #{point}
+		WHERE id= #{id}
 	</update>
 
 </mapper>

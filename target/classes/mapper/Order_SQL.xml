@@ -31,9 +31,10 @@
 		VALUES(#{id},#{ordernum},0,0,#{ordercost},sysdate,0,#{postcode},#{address},#{addressdetail},0,#{name},#{itemcode},#{review},0)
 	</insert>
 	
-<!-- 	<select id="mypage_order" resultMap="orderList">
-		select *
-		from ordertable
-		where id=#{id}
-	</select> -->
+		<!-- 상품 구매 후 재고 수정 -->
+	<update id="stock-down" parameterType="ItemAttrVO">
+		UPDATE ITEMATTR
+		SET itemstock = #{itemstock}		
+		WHERE itemcode = #{itemcode}
+	</update>
 </mapper>

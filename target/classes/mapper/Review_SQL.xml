@@ -40,8 +40,7 @@
 		<result column="ITEMNAME" property="itemname" jdbcType="VARCHAR" javaType="String" />
 		<result column="ITEMCOLOR" property="itemcolor" jdbcType="VARCHAR" javaType="String" />
 		<result column="ITEMCOST" property="itemcost" jdbcType="INTEGER" javaType="Integer" />
-		<result column="ITEMSTOCK" property="itemstock" jdbcType="INTEGER" javaType="Integer" />
-		<result column="ITEMGB" property="itemgb" jdbcType="VARCHAR" javaType="String" />
+		<result column="ITEMSTOCK" property="itemstock" jdbcType="INTEGER" javaType="Integer" />		
 	</resultMap>  
 	
 	<resultMap type="ReviewVO" id="reviewlist2">
